@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'animation/fadeAnimation.dart';
 import 'package:page_transition/page_transition.dart';
 import 'homePage.dart';
+import 'component/starter_button.dart';
 
 class StarterPage extends StatefulWidget {
   @override
@@ -95,42 +96,14 @@ class _StarterPageState extends State<StarterPage>
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 60,
+                SizedBox(height: 60),
+                BuildStarterButton(
+                  animation: _animation,
+                  onTap: () {
+                    _onTap();
+                  },
                 ),
-                FadeAnimation(
-                    1,
-                    ScaleTransition(
-                      scale: _animation,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          gradient: LinearGradient(colors: [
-                            Colors.yellow,
-                            Colors.orange,
-                          ]),
-                        ),
-                        child: FadeAnimation(
-                          2,
-                          MaterialButton(
-                            focusElevation: 10.0,
-                            onPressed: () {
-                              _onTap();
-                            },
-                            minWidth: double.infinity,
-                            child: Text(
-                              'Let\'s Go!!',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )),
-                SizedBox(
-                  height: 30,
-                ),
+                SizedBox(height: 30),
                 FadeAnimation(
                   2.2,
                   Text(
